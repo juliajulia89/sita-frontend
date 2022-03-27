@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { Link } from "react-router-dom";
 import {SidebarData} from "./SidebarData"
 //import { VscThreeBars } from "react-icons/vsc";
+import "./Navbar.css"
 
  function Navbar() {
      const [sidebar, setSidebar] = useState(false)
@@ -16,20 +17,18 @@ import {SidebarData} from "./SidebarData"
         </Link>
       </div>
       <nav className={sidebar ? "nav-menu-active" : "nav-menu"}>
-        <ul className="nav-menu-items">
+        <ul className="nav-menu-items" onClick={showSidebar}>
           <li className="navbar-toggle">
-            <Link to="#" className="menu-bars">
-              toggle
-            </Link>
+            <Link to="#" className="menu-bars"></Link>
           </li>
           {SidebarData.map((item, index) => {
-              return(
-                  <li key={index} className={item.className}>
-                  <Link to={item.path}>
-                    <span>{item.title}</span>
-                  </Link>
-                  </li>
-              )
+            return (
+              <li key={index} className={item.className}>
+                <Link to={item.path}>
+                  <span>{item.title}</span>
+                </Link>
+              </li>
+            );
           })}
         </ul>
       </nav>
