@@ -1,15 +1,21 @@
 import React from "react";
-import Logo from "../assets/logo.png";
+import "../index.css";
 import Navbar from "../components/Navbar";
 
 function Home() {
   return (
     <>
-     <Navbar />
-    <div className="home">
-      <h1>Welcome to SITA </h1>
-      <img className="logo" src={Logo} alt="sita logo" />
-    </div>
+      <Navbar />
+      <div className="home">
+        <h1>
+          Welcome to <p className="home-logo">SITA</p>
+        </h1>
+         </div>
+        <p className="home-text">
+          The world's leading specialist in air transport communications
+          and information technology.
+        </p>
+    
     </>
   );
 }
