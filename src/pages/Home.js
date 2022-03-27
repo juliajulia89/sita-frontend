@@ -1,9 +1,12 @@
 import React from "react";
+import Logo from "../assets/logo.png";
+
 
 function Home() {
   return (
     <div className="home">
-      <h1>home</h1>
+      <h1>Welcome to SITA </h1>
+      <img className="logo" src={Logo} alt="sita logo" />
     </div>
   );
 }
