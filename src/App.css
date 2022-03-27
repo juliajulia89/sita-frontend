@@ -37,3 +37,23 @@
   justify-content:center;
   font-size: 1.2rem;
 }
+
+.comment-form{
+   background: white;
+  border: 1px solid #1A95DA;
+  box-shadow: 0px 2px 3px #1A95DA;
+  width: 400px;
+  height: 400px;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.comment-button{
+  background: white;
+  color: #1A95DA;
+   border: 1px solid white;
+  font-size: 1rem;
+}

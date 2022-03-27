@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import "../index.css"
 
 const API_URI = process.env.REACT_APP_API_URI;
 
