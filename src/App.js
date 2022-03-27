@@ -10,11 +10,11 @@ function App() {
   return (
     <>
       <Router>
-        <Navbar />
+     
         <Switch>
-          <Route path="/" exact components={Home} />
-          <Route path="/flights" components={Flights} />
-          <Route path="/comment" components={Comment} />
+          <Route exact path="/" component={Home} />
+          <Route path="/flights" component={Flights} />
+          <Route path="/comment" component={Comment} />
         </Switch>
       </Router>
     </>

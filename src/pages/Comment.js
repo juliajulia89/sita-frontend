@@ -46,12 +46,7 @@ export class NewComment extends Component {
       <>
         <Navbar />
         <main className="comment">
-          {newCommentAdded === "on process" && (
-            <p className="comment-p ">
-              Your comment is being added to the list. Thank you.
-              
-            </p>
-          )}
+         
           {newCommentAdded === true && (
             <div className="comment-div">
               <p className="comment-p">
