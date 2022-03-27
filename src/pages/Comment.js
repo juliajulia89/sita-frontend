@@ -11,8 +11,8 @@ export class NewComment extends Component {
     super(props);
     this.state = {
       comment: "",
-      userId: Number(""),
-      flightId: Number([]),
+      userId: Number,
+      flightId: Number,
       tags: "",
       newCommentAdded: false,
     };
@@ -47,12 +47,10 @@ export class NewComment extends Component {
       <>
         <Navbar />
         <main className="comment">
-         
           {newCommentAdded === true && (
             <div className="comment-div">
               <p className="comment-p">
                 Your comment has been <strong>successfully added</strong>
-              
               </p>
               <button className="comment-button">
                 <Link to="/">Go to Home Page</Link>
@@ -62,13 +60,12 @@ export class NewComment extends Component {
               </button>
             </div>
           )}
-          {newCommentAdded === false && 
+          {newCommentAdded === false && (
             <form className="comment-form">
-              <label htmlFor="comment" className="comment-form-label">
-                Comment
-              </label>
-              <br></br>
+              <label htmlFor="comment" className="comment-form-label"></label>
+       
               <input
+                placeholder="Comment"
                 type="text"
                 id="comment"
                 name="comment"
@@ -78,12 +75,11 @@ export class NewComment extends Component {
                 autoComplete="off"
                 required
               />
-              <br></br>
-              <label htmlFor="userId" className="comment-form-label">
-                UserId
-              </label>
-              <br></br>
+          
+              <label htmlFor="userId" className="comment-form-label"></label>
+         
               <input
+                placeholder="UserID Number"
                 type="number"
                 id="userId"
                 name="userId"
@@ -93,12 +89,11 @@ export class NewComment extends Component {
                 autoComplete="off"
                 required
               />
-              <br></br>
-              <label htmlFor="flightId" className="comment-form-label">
-                FlightId
-              </label>
-              <br></br>
+         
+              <label htmlFor="flightId" className="comment-form-label"></label>
+       
               <input
+                placeholder="FlightID Number"
                 type="number"
                 id="flightId"
                 name="flightId"
@@ -108,12 +103,11 @@ export class NewComment extends Component {
                 autoComplete="off"
                 required
               />
-              <br></br>
-              <label htmlFor="tags" className="comment-form-label">
-                Tags
-              </label>
-              <br></br>
+         
+              <label htmlFor="tags" className="comment-form-label"></label>
+       
               <input
+                placeholder="Tags"
                 type="text"
                 id="tags"
                 name="tags"
@@ -122,7 +116,7 @@ export class NewComment extends Component {
                 className="comment-form-input"
                 autoComplete="off"
               />
-              <br></br>
+    
 
               <button
                 type="submit"
@@ -132,7 +126,7 @@ export class NewComment extends Component {
                 Leave a comment
               </button>
             </form>
-          }
+          )}
         </main>
       </>
     );
