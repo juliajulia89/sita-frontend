@@ -49,18 +49,14 @@ export class NewComment extends Component {
           {newCommentAdded === "on process" && (
             <p className="comment-p ">
               Your comment is being added to the list. Thank you.
-              <span role="img" aria-label="plane">
-                ✈️
-              </span>
+              
             </p>
           )}
           {newCommentAdded === true && (
             <div className="comment-div">
               <p className="comment-p">
                 Your comment has been <strong>successfully added</strong>
-                <span role="img" aria-label="plane">
-                  ✈️
-                </span>
+              
               </p>
               <button className="comment-button">
                 <Link to="/">Go to Home Page</Link>
