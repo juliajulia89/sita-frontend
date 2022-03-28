@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import "../index.css"
+import "../index.css";
+import { useHistory } from "react-router";
 
 const API_URI = process.env.REACT_APP_API_URI;
 
@@ -28,7 +29,7 @@ export class NewComment extends Component {
   handleAddComment = (event) => {
     event.preventDefault();
     const newComment = { ...this.state };
-
+    const history = useHistory();
     this.setState({
       newCommentAdded: "on process",
     });
@@ -37,6 +38,9 @@ export class NewComment extends Component {
       .then(() => {
         console.log("a comment has been added", newComment);
         this.setState({ newCommentAdded: true });
+      })
+      .then((respnse) => {
+        history.push("/");
       })
       .catch((error) => console.log(error));
   };
@@ -63,7 +67,7 @@ export class NewComment extends Component {
           {newCommentAdded === false && (
             <form className="comment-form">
               <label htmlFor="comment" className="comment-form-label"></label>
-       
+
               <input
                 placeholder="Comment"
                 type="text"
@@ -75,9 +79,9 @@ export class NewComment extends Component {
                 autoComplete="off"
                 required
               />
-          
+
               <label htmlFor="userId" className="comment-form-label"></label>
-         
+
               <input
                 placeholder="UserID Number"
                 type="number"
@@ -89,9 +93,9 @@ export class NewComment extends Component {
                 autoComplete="off"
                 required
               />
-         
+
               <label htmlFor="flightId" className="comment-form-label"></label>
-       
+
               <input
                 placeholder="FlightID Number"
                 type="number"
@@ -103,9 +107,9 @@ export class NewComment extends Component {
                 autoComplete="off"
                 required
               />
-         
+
               <label htmlFor="tags" className="comment-form-label"></label>
-       
+
               <input
                 placeholder="Tags"
                 type="text"
@@ -116,7 +120,6 @@ export class NewComment extends Component {
                 className="comment-form-input"
                 autoComplete="off"
               />
-    
 
               <button
                 type="submit"

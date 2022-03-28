@@ -8,26 +8,19 @@ import FlightCard from "../components/FlightCard";
 
 function Flights(props) {
   const [flights, setFlights] = useState([]);
-  const [query] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const API_URI = process.env.REACT_APP_API_URI;
 
   useEffect(() => {
-    const getFlightsFromApi = async () => {
-      try {
-        const flightsFromApi = await axios.get(`${API_URI}/api/flights`);
-        setFlights(flightsFromApi.data);
+    axios
+      .get(`${API_URI}/api/flights`)
+      .then((response) => {
+        setFlights(response.data);
         setIsLoading(false);
-      } catch (error) {
-        console.log(
-          error,
-          "We apologize, server error, please try again later"
-        );
-      }
-    };
-    getFlightsFromApi();
-  }, [query]);
-
+      })
+      .catch((error) => console.log(error));
+    },)
+         
   return (
     <>
       <Navbar />
