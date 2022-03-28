@@ -1,40 +1,42 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import "../index.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import Spinner from "../assets/running-man.gif";
 import "../index.css";
+import Navbar from "../components/Navbar";
+import Spinner from "../components/Spinner";
+import FlightCard from "../components/FlightCard";
 
 function Flights(props) {
-  const [data, setData] = useState({});
+  const [flights, setFlights] = useState([]);
+  const [query] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const API_URI = process.env.REACT_APP_API_URI;
 
   useEffect(() => {
-    axios
-      .get(`${API_URI}/flights`)
-      .then((response) => {
-        setData(response.data);
+    const getFlightsFromApi = async () => {
+      try {
+        const flightsFromApi = await axios.get(`${API_URI}/api/flights`);
+        setFlights(flightsFromApi.data);
         setIsLoading(false);
-      })
-      .catch((error) => console.log(error));
-  }, []);
+      } catch (error) {
+        console.log(
+          error,
+          "We apologize, server error, please try again later"
+        );
+      }
+    };
+    getFlightsFromApi();
+  }, [query]);
 
   return (
     <>
-      {isLoading ? (
-        <>
-          <img src={Spinner} alt="loading..." className="spinner" />
-        </>
-      ) : (
-        <>
-          <Navbar />
-          <div className="flights-list">
-            
-          </div>
-        </>
+      <Navbar />
+      {isLoading && <Spinner />}
+      {flights.map((flight) => {
+        return <FlightCard flightDetails={flight} key={flight._id} />;
+      })}
+      {flights.length === 0 && (
+        <p className="error-message">No such flight was found, sorry.</p>
       )}
     </>
   );
