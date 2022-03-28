@@ -14,6 +14,8 @@
   justify-content: center;
   font-size: 2rem;
 }
+
+.single-flight,
 .flights,
 .home {
   display: flex;
@@ -23,13 +25,7 @@
   font-size: 2rem;
 }
 
-.flights {
-  display: flex;
-  height: 20vh;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-}
+
 .home-logo {
   color: #1a95da;
   display: flex;

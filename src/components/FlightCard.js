@@ -6,11 +6,11 @@ function FlightCard({ flightDetails }) {
 
   return (
     <Link to={`/flights/${flightDetails.id}`}>
-      <div className="">
-        <p className="">{commentId}</p>
-        <p className="">{comment}</p>
-        <p className="">{user}</p>
-        <p className="">{tags}</p>
+      <div className="flight-detail">
+        <p className="flight-detail">{commentId}</p>
+        <p className="flight-detail">{comment}</p>
+        <p className="flight-detail">{user}</p>
+        <p className="flight-detail">{tags}</p>
       </div>
     </Link>
   );
