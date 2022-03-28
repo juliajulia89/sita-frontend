@@ -36,10 +36,10 @@ function SingleFlight() {
       <Navbar />
       <div className="my-4">
         <h1 className="text-4xl font-normal leading-normal mt-0 mb-2 text-blue-800">
-          Beer Details
+          Flight Details
         </h1>
         {isLoading && <Spinner />}
-        {!isLoading && <FlightDetails beerDetails={flight} />}
+        {!isLoading && <FlightDetails flightDetails={flight} />}
       </div>
     </div>
   );
